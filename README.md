@@ -45,6 +45,3 @@ npx playwright show-report
 5. **Interação com checkboxes** - Verifica a seleção de checkboxes.
 6. **Logout** - Testa o processo de logout e redirecionamento.
 
-## Observações
-
-Certifique-se de ajustar o caminho do arquivo a ser enviado no teste de upload.
