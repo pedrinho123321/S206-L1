@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "687eb879-2d24-424e-879b-3d81fafd173c",
+		"name": "Lista 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39345501"
+	},
+	"item": [
+		{
+			"name": "Exercício",
+			"item": [
+				{
+					"name": "1. Teste positivo - Obter um fato aleatório (GET /fact)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains fact and length\", function () {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"fact\");\r",
+									"    pm.expect(jsonData).to.have.property(\"length\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://catfact.ninja/fact",
+							"protocol": "https",
+							"host": [
+								"catfact",
+								"ninja"
+							],
+							"path": [
+								"fact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Teste negativo - Requisição com método inválido (POST /fact)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message or empty response\", function () {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://catfact.ninja/fact",
+							"protocol": "https",
+							"host": [
+								"catfact",
+								"ninja"
+							],
+							"path": [
+								"fact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Teste positivo - Listar múltiplos fatos (GET /facts)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains data and total\", function () {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"data\");\r",
+									"    pm.expect(jsonData).to.have.property(\"total\");\r",
+									"    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://catfact.ninja/facts",
+							"protocol": "https",
+							"host": [
+								"catfact",
+								"ninja"
+							],
+							"path": [
+								"facts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Teste negativo - Enviar página inválida (GET /facts?page=-1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains empty or valid data\", function () {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"data\");\r",
+									"    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://catfact.ninja/facts?page=-1",
+							"protocol": "https",
+							"host": [
+								"catfact",
+								"ninja"
+							],
+							"path": [
+								"facts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Teste positivo - Verificar paginação correta (GET /facts?page=1&limit=5)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data array length is <= 5\", function () {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.data.length).to.be.at.most(5);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://catfact.ninja/facts?page=1&limit=5",
+							"protocol": "https",
+							"host": [
+								"catfact",
+								"ninja"
+							],
+							"path": [
+								"facts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Teste negativo - Endpoint inexistente (GET /invalid-endpoint)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Empty or error response\", function () {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://catfact.ninja/invalid-endpoint",
+							"protocol": "https",
+							"host": [
+								"catfact",
+								"ninja"
+							],
+							"path": [
+								"invalid-endpoint"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
