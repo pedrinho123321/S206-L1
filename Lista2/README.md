@@ -55,3 +55,24 @@ Siga as etapas abaixo para importar os testes no Postman e executá-los.
 - `newman`: Arquivo html onde você pode ver os resultados dos testes.
 
 ---
+
+
+# **Respostas da segunda Questão**
+
+1. Os testes desenvolvidos são manuais ou automatizados?
+Resposta:
+Os testes desenvolvidos são automatizados.
+Justificativa:
+Foram configurados no Postman utilizando scripts na aba "Tests", permitindo que as validações sejam feitas automaticamente após cada requisição. Assim, não é necessário verificar manualmente as respostas, já que os resultados dos testes são exibidos automaticamente.
+
+2. Alguns dos testes desenvolvidos são testes Fim-a-Fim (End-To-End)?
+Resposta:
+Não.
+Justificativa:
+Os testes desenvolvidos verificam endpoints individuais e suas respostas (testes de API), sem validar o fluxo completo de uma aplicação. Testes End-To-End normalmente envolvem múltiplos sistemas interagindo, como frontend, backend e banco de dados, para simular cenários reais de uso.
+
+3. O que se deve fazer para que os testes desenvolvidos funcionem em modo regressão?
+Resposta:
+Para que os testes funcionem em modo regressão, eles devem ser incluídos em uma suite de testes automatizada que possa ser executada regularmente (como parte de um pipeline de CI/CD).
+Justificativa:
+Isso garante que os testes sejam repetidos automaticamente sempre que houver alterações no código ou na API, permitindo identificar regressões (bugs introduzidos por novas mudanças). É importante também manter os testes atualizados conforme a API evolui.
