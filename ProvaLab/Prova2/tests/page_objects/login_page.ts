@@ -6,14 +6,16 @@ export default class LoginPage {
     private readonly username_field: Locator;
     private readonly password_field: Locator;
     private readonly btn_login: Locator;
+    private readonly btn_cart: Locator;
 
 
     constructor(page: Page) {
         this.page = page;
-        
+
         this.username_field = page.locator('[data-test="username"]');
         this.password_field = page.locator('[data-test="password"]');
         this.btn_login = page.locator('[data-test="login-button"]');
+        this.btn_cart = page.locator('[data-test="shopping-cart-link"]');
     }
 
     async fillLoginInfos(username: string, password: string) {
@@ -22,7 +24,7 @@ export default class LoginPage {
     }
 
     async submitLogin() {
-        await this.btn_login.click;
+        await this.btn_login.click();
     }
 
     async expectSuccessfullLogin(title: string) {
@@ -31,10 +33,15 @@ export default class LoginPage {
 
     async expectErrorLogin(message: string) {
         await expect(this.page.locator('[data-test="error"]')).toContainText(message);
+
     }
 
     async visit(url: string) {
         await this.page.goto(url);
+    }
+
+    async gotoCartPage() {
+      await this.btn_cart.click();
     }
 
     async addProcuct(){
@@ -55,4 +62,5 @@ export default class LoginPage {
         await this.page.getByText('1Sauce Labs OnesieRib snap').click();
     }
 }
+
 
