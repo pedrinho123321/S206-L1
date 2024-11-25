@@ -1,47 +1,35 @@
-# Projeto de Testes de UI com Playwright
+# **S206L1 - Qualidade de Software**
 
-Este projeto contém testes de interface de usuário (UI) usando Playwright. Os testes foram realizados no site "The Internet - HerokuApp".
+Este repositório contém as atividades e projetos desenvolvidos na disciplina **S206L1 - Qualidade de Software**, incluindo testes automatizados, documentação, relatórios e implementações práticas relacionadas ao tema de qualidade e testes de software.
 
-## Requisitos
+---
 
-- Node.js (https://nodejs.org/)
-- Playwright (instale com `npm install @playwright/test`)
+## **Conteúdo do Repositório**
 
-## Instalação
+### **1. Atividades de Testes**
+- Configuração de ambientes de teste.
+- Desenvolvimento de testes manuais e automatizados.
+- Aplicação de ferramentas como **Postman** e frameworks de automação.
 
-1. Clone este repositório:
-   ```
-   git clone [URL do Repositório]
-   ```
-2. Acesse o diretório do projeto:
-   ```
-   cd [Nome do Diretório]
-   ```
-3. Instale as dependências:
-   ```
-   npm install
-   ```
+### **2. Projetos**
+- **Testes de APIs**: Utilizando APIs públicas para validar cenários positivos e negativos.
+- **Automação**: Criação de scripts para execução de testes em diferentes plataformas.
 
-## Executando os Testes
+### **3. Documentação**
+- Relatórios de execução de testes.
+- Instruções de uso para ferramentas e scripts.
 
-Para rodar todos os testes, use o comando:
-```
-npx playwright test
-```
+---
 
-## Relatório de Testes
+## **Ferramentas Utilizadas**
+- **Postman**: Para testes de APIs.
+- **GitHub**: Controle de versão e entrega de projetos.
+- **Markdown**: Para documentação clara e bem formatada.
 
-Para gerar um relatório visual dos testes, use:
-```
-npx playwright show-report
-```
+---
 
-## Casos de Teste Implementados
-
-1. **Login com credenciais válidas** - Verifica se o login com credenciais corretas é realizado com sucesso.
-2. **Login com credenciais inválidas** - Verifica o comportamento ao inserir credenciais inválidas.
-3. **Upload de arquivo** - Testa a funcionalidade de upload de arquivos.
-4. **Acesso a página protegida sem autenticação** - Tenta acessar uma página sem estar logado.
-5. **Interação com checkboxes** - Verifica a seleção de checkboxes.
-6. **Logout** - Testa o processo de logout e redirecionamento.
-
+## **Como Executar os Testes**
+### **1. Pré-requisitos**
+- Ter o [Postman](https://www.postman.com/downloads/) instalado.
+- Clonar este repositório:
+  ```bash
